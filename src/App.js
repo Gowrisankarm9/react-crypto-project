@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import { useEffect } from 'react';
 import { BrowserRouter,Route } from 'react-router-dom';
 import './App.css';
 import Alert from './components/Alert';
@@ -20,12 +21,16 @@ function App() {
 
   const classes = useStyles()
 
+  useEffect(() => {
+    document.title = "Crypto Watchlist";
+  }, []);
+
   return (
     <BrowserRouter>
       <div className={classes.App}>
         <Header />
-        <Route path="/" component={Homepage} exact/>
-        <Route path="/coins/:id" component={Coinpage} exact/>
+        <Route path="/" component={Homepage} exact />
+        <Route path="/coins/:id" component={Coinpage} exact />
       </div>
       <Alert />
     </BrowserRouter>
